@@ -311,10 +311,7 @@ console.log('addedshortenedLink' +this.state.addedShortenedLink)
                 <Row style={{margin:'0', padding:'0'}}>
                     <Col>
                         <h3 style={{color:'red',fontWeight:'700'}}><u>Shooooort</u></h3>
-                    {
-                      moment
                     
-                    }
 
                     </Col>
                     <Col>
