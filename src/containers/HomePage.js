@@ -87,10 +87,11 @@ export default class HomePage extends Component {
           }
           console.log(window.sessionStorage.getItem("link"))
     }
+    //text field handler
     onChangeText = (stateName, value) => {
         this.setState({ [stateName]: value });
       };
-      
+    //submit button shorten this link
     submitShorten = async () =>{
 
         let  differentTime = ''
@@ -180,7 +181,7 @@ console.log('addedshortenedLink' +this.state.addedShortenedLink)
     console.log(this.state.data)
     window.sessionStorage.setItem("data",  dataTmp)
     }
-    
+    //copy link
     redirectOnclick = async (id,Link,index,evt) =>{
       evt.preventDefault();
       const newCountries = [...this.state.data];
@@ -258,15 +259,18 @@ console.log('addedshortenedLink' +this.state.addedShortenedLink)
     console.log(this.state.data)
     window.sessionStorage.setItem("data",  dataTmp)
       }
+
+      //clear history
       Clear = ()=>{
         sessionStorage.clear()
         this.setState({data:[]})
       }
+      
     render() {
         let arr=[];
         let lastVisits;
-
       let Data;
+      //mapping for table body
       if(this.state.data){
       Data = this.state.data && this.state.data.length>0 ? this.state.data.map((a,index)=>{
         let result
@@ -288,10 +292,8 @@ console.log('addedshortenedLink' +this.state.addedShortenedLink)
                            }
                          </Col>   
                         </div>
-                               
                     </Row>
                     <Row><p style={{color:'grey',padding:'20px'}}>{a.LinkTmp}</p></Row>
-                  
                 </td>
                 <td>{a.redirectCount}</td>
                 <td> {(a.redirectCount>0)?
@@ -302,17 +304,13 @@ console.log('addedshortenedLink' +this.state.addedShortenedLink)
       }) : <tr>
          <td></td>
          </tr>}
-      let moment =   <Moment diff="2021-06-29T08:09:27" unit="seconds" >2021-06-29T06:10:02</Moment>
-      let m = parseInt(moment)
-
+    
         const {link,addedLink,arrayShortenedLink,data} = this.state
         return (
             <StyledHome>
                 <Row style={{margin:'0', padding:'0'}}>
                     <Col>
                         <h3 style={{color:'red',fontWeight:'700'}}><u>Shooooort</u></h3>
-                    
-
                     </Col>
                     <Col>
                         <h6 style={{color:'grey',fontWeight:'400'}}>The Link Shortener with a long name</h6>
